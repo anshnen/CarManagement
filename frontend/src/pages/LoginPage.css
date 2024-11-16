@@ -1,0 +1,105 @@
+/* src/pages/LoginPage.css */
+
+/* Prevent scrolling on the page */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Disable scrolling */
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212; /* Dark background for the whole page */
+  color: #fff; /* White text by default for better readability */
+}
+
+/* Full-screen container */
+.login-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000; /* Fallback color for unsupported video */
+}
+
+/* Background Video */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire background */
+  z-index: 0;
+  filter: brightness(50%); /* Dim the video even more for better readability */
+}
+
+/* Login Form Container */
+.login-form-container {
+  position: relative;
+  z-index: 2; /* Ensure the form is above the video */
+  backdrop-filter: blur(8px); /* Adds a subtle blur for the glassmorphism effect */
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for form */
+  text-align: center;
+}
+
+/* Login Header */
+.login-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Input Fields */
+.login-form-container input[type="text"],
+.login-form-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: rgba(50, 50, 50, 0.8); /* Darker input background */
+  color: #fff; /* White text for input fields */
+  font-size: 1rem;
+  outline: none;
+}
+
+.login-form-container input[type="text"]:focus,
+.login-form-container input[type="password"]:focus {
+  border-color: #0066cc; /* Focus state for inputs */
+}
+
+/* Submit Button */
+.login-form-container button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333; /* Dark button background */
+  color: #fff; /* White text */
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form-container button:hover {
+  background-color: #555; /* Slightly lighter on hover */
+}
+
+/* Error Message */
+.error {
+  color: #f44336;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 600px) {
+  .login-form-container {
+      padding: 20px;
+  }
+}

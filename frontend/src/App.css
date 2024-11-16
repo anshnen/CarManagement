@@ -1,0 +1,67 @@
+/* General styles */
+.App {
+  text-align: center;
+  background-color: #121212; /* Dark background for overall page */
+  color: #e0e0e0; /* Light text color for better contrast */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  transition: transform 0.5s ease-in-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #181818; /* Slightly darker background */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(12px + 2vmin); /* Slightly larger font for readability */
+  color: #f5f5f5; /* Lighter text for readability */
+  padding: 20px; /* Added some spacing around */
+  border-radius: 8px; /* Rounded corners for a modern look */
+}
+
+.App-link {
+  color: #61dafb; /* React standard blue */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #333; /* Dark background for the link */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.App-link:hover {
+  background-color: #61dafb; /* Hover effect */
+  color: #121212; /* Dark text color on hover */
+}
+
+/* Keyframes for spinning animation */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Additional enhancements for the dark theme */
+body {
+  background-color: #121212; /* Ensure body has dark background */
+  color: #e0e0e0; /* Light text */
+}

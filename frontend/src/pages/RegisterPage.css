@@ -1,0 +1,102 @@
+/* src/pages/RegisterPage.css */
+
+/* Prevent scrolling */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Disable scrolling */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Full-screen container */
+.register-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000; /* Dark background for the page */
+}
+
+/* Background Video */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire background */
+  z-index: 0;
+  filter: brightness(60%); /* Dim the video slightly for better readability */
+}
+
+/* Register Form Container */
+.register-form-container {
+  position: relative;
+  z-index: 2; /* Ensure the form is above the video */
+  backdrop-filter: blur(8px); /* Adds a subtle blur for the glassmorphism effect */
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.7); /* Dark, semi-transparent background for form */
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); /* Darker shadow */
+}
+
+/* Form Title */
+.register-form-container h1 {
+  color: #fff; /* White text for title */
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Input Fields */
+.register-form-container input {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1); /* Light background for input fields */
+  border: 1px solid #555; /* Subtle border */
+  color: #fff; /* White text for input */
+}
+
+/* Input Fields - Focus */
+.register-form-container input:focus {
+  border-color: #007aff; /* Highlight border color on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Button Styles */
+.register-form-container button {
+  background-color: #007aff; /* Blue button for visibility */
+  color: white; /* White text on button */
+  padding: 12px 24px;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Button - Hover */
+.register-form-container button:hover {
+  background-color: #005bb5; /* Darker shade of blue on hover */
+}
+
+/* Redirect to Login Link */
+.register-form-container .redirect {
+  color: #ccc; /* Light text for the redirect link */
+  text-align: center;
+  margin-top: 16px;
+}
+
+.register-form-container .redirect a {
+  color: #007aff; /* Blue link color */
+  text-decoration: none;
+}
+
+.register-form-container .redirect a:hover {
+  text-decoration: underline; /* Underline link on hover */
+}

@@ -1,0 +1,140 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Car Management API",
+    "version": "1.0.0",
+    "description": "This API allows users to register, log in, and manage cars. It supports authentication via JWT tokens and follows best practices for secure API access."
+  },
+  "host": "your-backend-domain.com",
+  "basePath": "/api",
+  "schemes": ["https"],
+  "paths": {
+    "/users/register": {
+      "post": {
+        "summary": "Register a new user",
+        "description": "Creates a new user account with the specified username, email, and password.",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object containing registration details",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User registered successfully. Returns a confirmation message."
+          },
+          "400": {
+            "description": "Bad Request. Typically occurs if the email is already in use or required fields are missing."
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "summary": "Login a user",
+        "description": "Logs in a user by validating the email and password. Returns a JWT token for further API access.",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User credentials (email and password) for login",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login successful. Returns a JWT token for subsequent API calls.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "description": "JWT token for authenticated requests"
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier of the user"
+                    },
+                    "username": {
+                      "type": "string",
+                      "description": "Username of the logged-in user"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid email or password."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "required": ["username", "email", "password"],
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "The user's username, unique across the platform."
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address, must be unique."
+        },
+        "password": {
+          "type": "string",
+          "description": "The user's password, stored securely (hashed)."
+        }
+      }
+    },
+    "Login": {
+      "type": "object",
+      "required": ["email", "password"],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "The user's email address."
+        },
+        "password": {
+          "type": "string",
+          "description": "The user's password."
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "JWT authorization token. Use the format 'Bearer <token>'"
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Endpoints related to user registration, authentication, and management."
+    }
+  ]
+}  
